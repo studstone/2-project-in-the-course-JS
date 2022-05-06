@@ -3,12 +3,25 @@ const modal = () => {
   const buttons = document.querySelectorAll('.popup-btn');
   const popup = document.querySelector('.popup');
   const buttonClosePopup = popup.querySelector('.popup-close');
+  const popupContent = document.querySelector('.popup-content');
+
+  const animation = () => {
+    let i = 0;
+    popup.style.display = `block`;
+    popupContent.style.opacity = 0;
+    const interval = setInterval(() => {
+      i += 0.1;
+      popupContent.style.opacity = i;
+      if (popupContent.style.opacity >= 1) {
+        clearInterval(interval);
+      }
+    }, 50);
+  };
 
   buttons.forEach((el) => {
-    el.addEventListener('click', () => {
-      popup.style.display = `block`;
-    });
+    el.addEventListener('click', animation);
   });
+
   buttonClosePopup.addEventListener('click', () => {
     popup.style.display = ``;
   });
