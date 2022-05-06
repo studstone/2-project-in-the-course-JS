@@ -1,3 +1,5 @@
 import timer from './modules/timer';
+import menu from './modules/menu';
 
-timer('9 may 2022');
+timer('12 may 2022 13:30:00');
+menu();
