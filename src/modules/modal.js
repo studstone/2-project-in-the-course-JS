@@ -10,12 +10,12 @@ const modal = () => {
     popup.style.display = `block`;
     popupContent.style.opacity = 0;
     const interval = setInterval(() => {
-      i += 0.1;
+      i += 0.01;
       popupContent.style.opacity = i;
       if (popupContent.style.opacity >= 1) {
         clearInterval(interval);
       }
-    }, 50);
+    }, 10);
   };
 
   buttons.forEach((el) => {
