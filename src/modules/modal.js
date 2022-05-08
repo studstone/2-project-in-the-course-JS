@@ -4,6 +4,8 @@ const modal = () => {
   const popup = document.querySelector('.popup');
   const buttonClosePopup = popup.querySelector('.popup-close');
   const popupContent = document.querySelector('.popup-content');
+  const widht = document.documentElement.clientWidth;
+  console.log(widht);
 
   const animation = () => {
     let i = 0;
@@ -19,7 +21,13 @@ const modal = () => {
   };
 
   buttons.forEach((el) => {
-    el.addEventListener('click', animation);
+    el.addEventListener('click', () => {
+      if (widht <= 768) {
+        popup.style.display = `block`;
+      } else {
+        animation();
+      }
+    });
   });
 
   buttonClosePopup.addEventListener('click', () => {
