@@ -24,7 +24,7 @@ const timer = (deadline) => {
   };
 
   const addZero = (str) => {
-    if (Number(str) > 0 && Number(str) < 10) {
+    if (Number(str) >= 0 && Number(str) < 10) {
       return `0${str}`;
     }
     return str;
