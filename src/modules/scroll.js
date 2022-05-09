@@ -2,21 +2,29 @@
 const smoothScroll = () => {
   const mousBottom = document.querySelector('a[href="#service-block"]');
   const serviceBlock = document.querySelector('#service-block');
-  const toHome = document.querySelector('.col-md-2.col-sm-2.col-12>a');
   const main = document.querySelector('main');
   const arrowUp = document.querySelector('.arrow-up');
+  const menu = document.querySelector('menu');
+  const menuLinks = menu.querySelectorAll('li');
+
+  const scroll = e => {
+    e.preventDefault();
+
+    const section = document.querySelector(e.target.hash);
+
+    section.scrollIntoView({
+      block: "start",
+      behavior: "smooth"
+    });
+  };
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', scroll);
+  });
 
   mousBottom.addEventListener('click', e => {
     e.preventDefault();
     serviceBlock.scrollIntoView({
-      block: "start",
-      behavior: "smooth"
-    });
-  });
-
-  toHome.addEventListener('click', e => {
-    e.preventDefault();
-    main.scrollIntoView({
       block: "start",
       behavior: "smooth"
     });

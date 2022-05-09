@@ -5,7 +5,6 @@ const modal = () => {
   const buttonClosePopup = popup.querySelector('.popup-close');
   const popupContent = document.querySelector('.popup-content');
   const widht = document.documentElement.clientWidth;
-  console.log(widht);
 
   const animation = () => {
     let i = 0;
