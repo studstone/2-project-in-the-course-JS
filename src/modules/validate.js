@@ -4,8 +4,8 @@ const validate = () => {
 
   input.forEach((el, index) => {
     if (index > 0) {
-      el.addEventListener('input', () => {
-        if (!/[^\d]/g.test(el.value) || el.value === '') {
+      el.addEventListener('change', () => {
+        if (!/[^\d]/g.test(el.value) || el.value.trim() !== '') {
           el.style.borderColor = 'green';
         } else {
           el.value = 'Ввeдите число';
