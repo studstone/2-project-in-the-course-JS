@@ -3,7 +3,23 @@ const validate = () => {
   const input = document.querySelectorAll('.calc-item');
 
   input.forEach((el, index) => {
-    index > 0 ? console.log(el) : console.log('net');
+    if (index > 0) {
+      el.addEventListener('input', () => {
+        if (!/[^\d]/g.test(el.value) || el.value === '') {
+          el.style.borderColor = 'green';
+        } else {
+          el.value = 'Ввeдите число';
+          el.style.cssText = `
+          border-color: red;
+          color: red;
+          `;
+        }
+      });
+    }
+    el.addEventListener('click', () => {
+      el.value = '';
+      el.removeAttribute('style');
+    });
   });
 };
 
