@@ -4,16 +4,26 @@ const tabs = () => {
     const tabContent = document.querySelectorAll('.service-tab');
 
     tabPanel.addEventListener('click', e => {
-        console.log(e.target);
         if (e.target.closest('.service-header-tab')) {
             tabs.forEach((tab, index) => {
                 const tabButton = e.target.closest('.service-header-tab');
                 if (tab === tabButton) {
+                    let i = 0;
+
                     tab.classList.add('active');
                     tabContent[index].classList.remove('d-none');
+                    tabContent[index].style.opacity = 0;
+                    const interval = setInterval(() => {
+                        i += 0.1;
+                        tabContent[index].style.opacity = i;
+                        if (tabContent[index].style.opacity >= 1) {
+                            clearInterval(interval);
+                        }
+                    }, 40);
                 } else {
                     tab.classList.remove('active');
                     tabContent[index].classList.add('d-none');
+                    tabContent[index].removeAttribute('style');
                 }
             });
         }
