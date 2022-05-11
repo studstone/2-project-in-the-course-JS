@@ -1,5 +1,4 @@
-'use strict';
-const timer = (deadline) => {
+const timer = deadline => {
   const timerDays = document.getElementById('timer-days');
   const timerHours = document.getElementById('timer-hours');
   const timerMinutes = document.getElementById('timer-minutes');
@@ -23,7 +22,7 @@ const timer = (deadline) => {
     };
   };
 
-  const addZero = (str) => {
+  const addZero = str => {
     if (Number(str) >= 0 && Number(str) < 10) {
       return `0${str}`;
     }

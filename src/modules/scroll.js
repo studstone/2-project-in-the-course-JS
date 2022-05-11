@@ -1,4 +1,3 @@
-'use strict';
 const smoothScroll = () => {
   const mousBottom = document.querySelector('a[href="#service-block"]');
   const serviceBlock = document.querySelector('#service-block');

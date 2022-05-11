@@ -1,9 +1,8 @@
-'use strict';
 const modal = () => {
-  const buttons = document.querySelectorAll('.popup-btn');
-  const popup = document.querySelector('.popup');
-  const buttonClosePopup = popup.querySelector('.popup-close');
-  const popupContent = document.querySelector('.popup-content');
+  const buttons = document.querySelectorAll(".popup-btn");
+  const popup = document.querySelector(".popup");
+  const buttonClosePopup = popup.querySelector(".popup-close");
+  const popupContent = document.querySelector(".popup-content");
   const widht = document.documentElement.clientWidth;
 
   const animation = () => {
@@ -19,8 +18,8 @@ const modal = () => {
     }, 10);
   };
 
-  buttons.forEach((el) => {
-    el.addEventListener('click', () => {
+  buttons.forEach(el => {
+    el.addEventListener("click", () => {
       if (widht <= 768) {
         popup.style.display = `block`;
       } else {
@@ -29,19 +28,19 @@ const modal = () => {
     });
   });
 
-  buttonClosePopup.addEventListener('click', () => {
+  buttonClosePopup.addEventListener("click", () => {
     popup.style.display = ``;
   });
 
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
       popup.style.display = ``;
     }
   });
 
-  window.addEventListener('click', e => {
+  window.addEventListener("click", e => {
     const target = e.target;
-    if (!target.closest('popup') && !target.closest('.popup-btn')) {
+    if (!target.closest("popup") && !target.closest(".popup-btn")) {
       popup.style.display = ``;
     }
   });

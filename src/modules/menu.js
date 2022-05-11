@@ -1,29 +1,28 @@
-'use strict';
 const menu = () => {
-  const openMenuButton = document.querySelector('.menu');
-  const menu = document.querySelector('menu');
-  const menuLink = menu.querySelectorAll('a');
+  const openMenuButton = document.querySelector(".menu");
+  const menu = document.querySelector("menu");
+  const menuLink = menu.querySelectorAll("a");
 
   const hendleMenu = () => {
-    menu.classList.toggle('active-menu');
+    menu.classList.toggle("active-menu");
   };
 
-  openMenuButton.addEventListener('click', hendleMenu);
+  openMenuButton.addEventListener("click", hendleMenu);
 
-  menuLink.forEach(el => el.addEventListener('click', hendleMenu));
+  menuLink.forEach(el => el.addEventListener("click", hendleMenu));
 
   /*Закрытие меню по нажатию Escape*/
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      menu.classList.remove('active-menu');
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      menu.classList.remove("active-menu");
     }
   });
 
   /*Закрытие меню по клику вне меню*/
-  window.addEventListener('click', e => {
+  window.addEventListener("click", e => {
     const target = e.target;
-    if (!target.closest('menu') && !target.closest('.menu')) {
-      menu.classList.remove('active-menu');
+    if (!target.closest("menu") && !target.closest(".menu")) {
+      menu.classList.remove("active-menu");
     }
   });
 };
