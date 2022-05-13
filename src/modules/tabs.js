@@ -3,7 +3,6 @@ const tabs = () => {
     const tabs = document.querySelectorAll('.service-header-tab');
     const tabContent = document.querySelectorAll('.service-tab');
     const widht = document.documentElement.clientWidth;
-    console.log(widht);
 
 
     tabPanel.addEventListener('click', e => {
