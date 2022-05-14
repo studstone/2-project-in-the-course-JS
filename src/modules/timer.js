@@ -3,6 +3,7 @@ const timer = deadline => {
   const timerHours = document.getElementById('timer-hours');
   const timerMinutes = document.getElementById('timer-minutes');
   const timerSeconds = document.getElementById('timer-seconds');
+  const span = document.querySelectorAll('#timer span')[1];
 
   const getTimeRemaining = () => {
     const dateStop = new Date(deadline).getTime();
@@ -31,11 +32,17 @@ const timer = deadline => {
 
   const showClock = () => {
     const getTime = getTimeRemaining();
+
     if (getTime.timeRemaining > 0) {
       timerDays.textContent = `${addZero(getTime.days)} дн`;
       timerHours.textContent = `${addZero(getTime.hours)}`;
       timerMinutes.textContent = `${addZero(getTime.minutes)}`;
       timerSeconds.textContent = `${addZero(getTime.seconds)}`;
+    }
+
+    if (getTime.days === 0) {
+      timerDays.textContent = '';
+      span.textContent = '';
     }
   };
 
