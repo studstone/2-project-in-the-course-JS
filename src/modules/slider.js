@@ -1,11 +1,18 @@
 export const slider = () => {
     const sliderBlock = document.querySelector('.portfolio-content');
     const slides = document.querySelectorAll('.portfolio-item');
-    const pagination = document.querySelectorAll('.dot');
+    const paginationBlock = document.querySelector('.portfolio-dots');
     const timeInterval = 2000;
 
     let currentSlide = 0;
     let interval;
+
+    // for (let i = 0; i < slides.length; i++) {
+    //     paginationBlock.innerHTML += `<li class="dot"></li>`;
+    // }
+    slides.forEach((el, index) => {
+        paginationBlock.innerHTML += `<li class="dot ${index === 0 ? 'dot-active' : ''}"></li>`;
+    });
 
     const nextSlide = (el, index, strClass) => {
         el[index].classList.remove(strClass);
@@ -16,6 +23,8 @@ export const slider = () => {
     };
 
     const autoSlide = () => {
+        const pagination = document.querySelectorAll('.dot');
+
         nextSlide(slides, currentSlide, 'portfolio-item-active');
         nextSlide(pagination, currentSlide, 'dot-active');
         currentSlide++;
@@ -37,6 +46,7 @@ export const slider = () => {
     };
 
     sliderBlock.addEventListener('click', e => {
+        const pagination = document.querySelectorAll('.dot');
         e.preventDefault();
 
         if (!e.target.matches('.dot, .portfolio-btn')) {
