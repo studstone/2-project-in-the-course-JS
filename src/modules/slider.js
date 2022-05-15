@@ -7,9 +7,7 @@ export const slider = () => {
     let currentSlide = 0;
     let interval;
 
-    // for (let i = 0; i < slides.length; i++) {
-    //     paginationBlock.innerHTML += `<li class="dot"></li>`;
-    // }
+
     slides.forEach((el, index) => {
         paginationBlock.innerHTML += `<li class="dot ${index === 0 ? 'dot-active' : ''}"></li>`;
     });
