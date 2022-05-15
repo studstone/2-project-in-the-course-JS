@@ -4,7 +4,7 @@ const smoothScroll = () => {
   const main = document.querySelector('main');
   const arrowUp = document.querySelector('.arrow-up');
   const menu = document.querySelector('menu');
-  const menuLinks = menu.querySelectorAll('li');
+  const menuLinks = menu.querySelectorAll('a');
 
   const scroll = e => {
     e.preventDefault();
@@ -17,8 +17,10 @@ const smoothScroll = () => {
     });
   };
 
-  menuLinks.forEach(link => {
-    link.addEventListener('click', scroll);
+  menuLinks.forEach((link, index) => {
+    if (index > 0) {
+      link.addEventListener('click', scroll);
+    }
   });
 
   mousBottom.addEventListener('click', e => {

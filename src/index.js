@@ -6,7 +6,7 @@ import validate from './modules/validate';
 import tabs from './modules/tabs';
 import { slider } from './modules/slider';
 
-timer('15 may 2022 13:30:00');
+timer('16 may 2022 13:30:00');
 menu();
 modal();
 smoothScroll();
