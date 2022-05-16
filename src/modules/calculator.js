@@ -7,10 +7,14 @@ export const calculator = (price = 100) => {
     const spanTotal = document.getElementById('total');
 
     const countCalc = () => {
-        console.log('calc');
+        // const calcTypeValue = calcType;
+        console.dir(calcType);
     };
 
     calcBlock.addEventListener('change', e => {
-        countCalc();
+        if (e.target === calcType || e.target === calcSquare ||
+            e.target === calcCount || e.target === calcDay) {
+            countCalc();
+        }
     });
 };
