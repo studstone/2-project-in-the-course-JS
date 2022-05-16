@@ -6,6 +6,16 @@ const smoothScroll = () => {
   const menu = document.querySelector('menu');
   const menuLinks = menu.querySelectorAll('a');
 
+  arrowUp.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    z-index: 100;
+    cursor: pointer;
+  `;
+
   const scroll = e => {
     e.preventDefault();
 
