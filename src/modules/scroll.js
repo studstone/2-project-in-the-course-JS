@@ -1,8 +1,8 @@
 const smoothScroll = () => {
   const mousBottom = document.querySelector('a[href="#service-block"]');
   const serviceBlock = document.querySelector('#service-block');
-  const main = document.querySelector('main');
-  const arrowUp = document.querySelector('.arrow-up');
+  // const main = document.querySelector('main');
+  // const arrowUp = document.querySelector('.arrow-up');
   const menu = document.querySelector('menu');
   const menuLinks = menu.querySelectorAll('a');
 
@@ -31,22 +31,22 @@ const smoothScroll = () => {
     });
   });
 
-  arrowUp.addEventListener('click', e => {
-    e.preventDefault();
-    main.scrollIntoView({
-      block: "start",
-      behavior: "smooth"
-    });
-  });
+  // arrowUp.addEventListener('click', e => {
+  //   e.preventDefault();
+  //   main.scrollIntoView({
+  //     block: "start",
+  //     behavior: "smooth"
+  //   });
+  // });
 
-  window.addEventListener('scroll', () => {
-    const scrollTop = document.documentElement.scrollTop;
-    if (scrollTop <= 900) {
-      arrowUp.style.display = 'none';
-    } else {
-      arrowUp.style.display = '';
-    }
-  });
+  // window.addEventListener('scroll', () => {
+  //   const scrollTop = document.documentElement.scrollTop;
+  //   if (scrollTop <= 900) {
+  //     arrowUp.style.display = 'none';
+  //   } else {
+  //     arrowUp.style.display = '';
+  //   }
+  // });
 };
 
 
