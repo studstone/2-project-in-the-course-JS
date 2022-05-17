@@ -1,10 +1,14 @@
 const smoothScroll = () => {
+  const body = document.querySelector('body');
   const mousBottom = document.querySelector('a[href="#service-block"]');
   const serviceBlock = document.querySelector('#service-block');
   const main = document.querySelector('main');
-  const arrowUp = document.querySelector('.arrow-up');
   const menu = document.querySelector('menu');
   const menuLinks = menu.querySelectorAll('a');
+
+  const arrowUp = document.createElement('div');
+
+  arrowUp.innerHTML = `<img src="./images/up-arrow.svg" alt="" />`;
 
   arrowUp.style.cssText = `
     position: fixed;
@@ -15,6 +19,8 @@ const smoothScroll = () => {
     z-index: 100;
     cursor: pointer;
   `;
+
+  body.append(arrowUp);
 
   const scroll = e => {
     e.preventDefault();
