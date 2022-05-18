@@ -1,3 +1,5 @@
+import { animate } from "./helper";
+
 const modal = () => {
   const buttons = document.querySelectorAll(".popup-btn");
   const popup = document.querySelector(".popup");
@@ -5,25 +7,21 @@ const modal = () => {
   const popupContent = document.querySelector(".popup-content");
   const widht = document.documentElement.clientWidth;
 
-  const animation = () => {
-    let i = 0;
-    popup.style.display = `block`;
-    popupContent.style.opacity = 0;
-    const interval = setInterval(() => {
-      i += 0.01;
-      popupContent.style.opacity = i;
-      if (popupContent.style.opacity >= 1) {
-        clearInterval(interval);
-      }
-    }, 10);
-  };
-
   buttons.forEach(el => {
     el.addEventListener("click", () => {
       if (widht <= 768) {
         popup.style.display = `block`;
       } else {
-        animation();
+        animate({
+          duration: 1000,
+          timing(timeFraction) {
+            return timeFraction;
+          },
+          draw(progress) {
+            popup.style.display = `block`;
+            popupContent.style.opacity = progress;
+          }
+        });
       }
     });
   });
