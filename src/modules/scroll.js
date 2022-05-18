@@ -47,22 +47,22 @@ const smoothScroll = () => {
     });
   });
 
-  // arrowUp.addEventListener('click', e => {
-  //   e.preventDefault();
-  //   main.scrollIntoView({
-  //     block: "start",
-  //     behavior: "smooth"
-  //   });
-  // });
+  arrowUp.addEventListener('click', e => {
+    e.preventDefault();
+    main.scrollIntoView({
+      block: "start",
+      behavior: "smooth"
+    });
+  });
 
-  // window.addEventListener('scroll', () => {
-  //   const scrollTop = document.documentElement.scrollTop;
-  //   if (scrollTop <= 900) {
-  //     arrowUp.style.display = 'none';
-  //   } else {
-  //     arrowUp.style.display = '';
-  //   }
-  // });
+  window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop;
+    if (scrollTop <= 900) {
+      arrowUp.style.display = 'none';
+    } else {
+      arrowUp.style.display = '';
+    }
+  });
 };
 
 
