@@ -19,7 +19,11 @@ const modal = () => {
           },
           draw(progress) {
             popup.style.display = `block`;
-            popupContent.style.opacity = progress;
+            popupContent.style.cssText = `
+            opacity: ${progress};
+            left: 50%;
+            transform: translateX(-50%);
+            `;
           }
         });
       }
