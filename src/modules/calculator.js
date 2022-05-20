@@ -1,10 +1,12 @@
+import { animate } from "./helper";
+
 export const calculator = (price = 100) => {
     const calcBlock = document.querySelector('.calc-block');
     const calcType = calcBlock.querySelector('.calc-type');
     const calcSquare = calcBlock.querySelector('.calc-square');
     const calcCount = calcBlock.querySelector('.calc-count');
-    const calcDay = calcBlock.querySelector('.calc-day');
     const spanTotal = document.getElementById('total');
+    const calcDay = calcBlock.querySelector('.calc-day');
 
     const countCalc = () => {
         const calcTypeValue = +calcType.options[calcType.selectedIndex].value;
@@ -14,7 +16,7 @@ export const calculator = (price = 100) => {
         let calcCountValue = 1;
         let calcDayValue = 1;
 
-        if (calcCount.value) {
+        if (calcCount.value > 1) {
             calcCountValue += calcCount.value / 10;
 
         } if (calcDay.value && calcDay.value < 5) {
@@ -31,7 +33,15 @@ export const calculator = (price = 100) => {
             totalValue = 0;
         }
 
-        spanTotal.textContent = totalValue;
+        animate({
+            duration: 1000,
+            timing(timeFraction) {
+                return timeFraction;
+            },
+            draw(progress) {
+                spanTotal.textContent = Math.round(totalValue * progress);
+            }
+        });
     };
 
     calcBlock.addEventListener('input', e => {
