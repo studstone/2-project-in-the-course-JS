@@ -6,6 +6,7 @@ import validate from './modules/validate';
 import tabs from './modules/tabs';
 import { slider } from './modules/slider';
 import { calculator } from './modules/calculator';
+import { sendForm } from './modules/sendForm';
 
 timer('16 may 2022 13:30:00');
 menu();
@@ -15,3 +16,4 @@ validate();
 tabs();
 slider();
 calculator();
+sendForm();
