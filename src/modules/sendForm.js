@@ -9,7 +9,7 @@ const sendForm = ({ formId, someElem = [] }) => {
     const nameRegex = /^[а-яА-ЯёЁa]{2,20}$/;
     const emailRegex = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/;
     const numberRegex = /^(\+7|8)[\s(]*\d{3}[)\s]*\d{3}[\s-]?\d{2}[\s-]?\d{2}/;
-    const messageRegex = /^[а-яА-ЯёЁa]{2,20}$/;
+    const messageRegex = /^[?!,.а-яА-ЯёЁ0-9\s]+$/;
 
     const validate = list => {
         let success = true;
