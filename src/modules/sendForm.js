@@ -16,13 +16,16 @@ const sendForm = ({ formId, someElem = [] }) => {
 
 
         list.forEach(input => {
-            input.addEventListener('click', () => {
-                input.value = '';
-                input.style.color = '';
-                input.style.fontSize = '';
-            });
-
             if (input.classList.contains('form-name')) {
+                input.addEventListener('input', () => {
+                    if (nameRegex.test(input.value)) {
+                        input.style.border = '';
+                    } else {
+                        input.style.border = 'solid red 2px';
+                    }
+                });
+            }
+            if (input.classList.contains('top-form')) {
                 input.addEventListener('input', () => {
                     if (nameRegex.test(input.value)) {
                         input.style.border = '';
@@ -110,12 +113,11 @@ const sendForm = ({ formId, someElem = [] }) => {
                 .catch(() => statusBlock.textContent = errorText);
         } else {
             formElement.forEach(input => {
-                input.value = 'Заполните поля';
-                input.style.cssText = `
-                border: solid red 2px;
-                color: red;
-                font-size: 10px;
-                `;
+                if (input.style.border === 'solid red 2px') {
+                    input.style.border = '';
+                } else {
+                    input.style.border = 'solid red 2px';
+                }
             });
         }
     };
