@@ -42,7 +42,7 @@ const modal = () => {
 
   window.addEventListener("click", e => {
     const target = e.target;
-    if (!target.closest("popup") && !target.closest(".popup-btn")) {
+    if (!target.closest(".popup-content")) {
       popup.style.display = ``;
     }
   });
