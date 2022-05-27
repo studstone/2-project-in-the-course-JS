@@ -7,6 +7,7 @@ export const calculator = (price = 100) => {
     const calcCount = calcBlock.querySelector('.calc-count');
     const spanTotal = document.getElementById('total');
     const calcDay = calcBlock.querySelector('.calc-day');
+    console.log(calcType);
 
     const countCalc = () => {
         const calcTypeValue = +calcType.options[calcType.selectedIndex].value;
