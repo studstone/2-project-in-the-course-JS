@@ -7,6 +7,8 @@ const modal = () => {
   const popupContent = document.querySelector(".popup-content");
   const widht = document.documentElement.clientWidth;
 
+  buttonClosePopup.style.cursor = 'pointer';
+
   buttons.forEach(el => {
     el.addEventListener("click", () => {
       if (widht <= 768) {
