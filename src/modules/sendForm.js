@@ -44,12 +44,12 @@ const sendForm = ({ formId, someElem = [] }) => {
         let success = true;
 
         list.forEach(input => {
-            if (success) {
-                success = !!input.value;
-            } else {
-                return success;
+            if (input.value === '') {
+                success = false;
             }
         });
+
+        return success;
     };
 
     const sendData = data => fetch('https://jsonplaceholder.typicode.com/posts', {
