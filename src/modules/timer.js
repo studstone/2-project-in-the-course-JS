@@ -34,7 +34,7 @@ const timer = deadline => {
         const getTime = getTimeRemaining();
 
         if (getTime.timeRemaining > 0) {
-            timerDays.textContent = `${addZero(getTime.days)} дн`;
+            timerDays.textContent = `${addZero(getTime.days)}`;
             timerHours.textContent = `${addZero(getTime.hours)}`;
             timerMinutes.textContent = `${addZero(getTime.minutes)}`;
             timerSeconds.textContent = `${addZero(getTime.seconds)}`;

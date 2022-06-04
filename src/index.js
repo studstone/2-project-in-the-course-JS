@@ -8,7 +8,7 @@ import { slider } from './modules/slider';
 import { calculator } from './modules/calculator';
 import sendForm from './modules/sendForm';
 
-timer('3 june 2022 13:30:00');
+timer('5 june 2022 13:30:00');
 menu();
 modal();
 smoothScroll();
