@@ -69,7 +69,7 @@ const sendForm = ({ formId, someElem = [] }) => {
 
         inputValidate(formElement);
 
-        if (validate(formElement)) {
+        if (inputValidate(formElement)) {
             statusBlock.textContent = loadText;
             statusBlock.style.color = '#fff';
             form.append(statusBlock);
