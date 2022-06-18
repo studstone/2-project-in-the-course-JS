@@ -23,6 +23,7 @@ const smoothScroll = () => {
     body.append(arrowUp);
 
     const scroll = e => {
+        console.log(e.target);
         e.preventDefault();
 
         const section = document.querySelector(e.target.hash);

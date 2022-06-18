@@ -15,16 +15,21 @@ const sendForm = ({ formId, someElem = [] }) => {
     };
 
     const inputValidate = list => {
+        let success = true;
 
         const newArray = Array.from(list);
 
         Object.keys(mapInputs).forEach(key => {
+
             const findInput = newArray.find(input => input.classList.contains(key));
 
             if (findInput && !(mapInputs[key].test(findInput.value))) {
                 findInput.style.border = 'solid red 2px';
+                success = false;
             }
         });
+
+        return success;
     };
 
     const clearStyleBorder = item => {
@@ -37,19 +42,6 @@ const sendForm = ({ formId, someElem = [] }) => {
         list.forEach(input => {
             input.addEventListener('focus', e => clearStyleBorder(e.target));
         });
-    };
-
-
-    const validate = list => {
-        let success = true;
-
-        list.forEach(input => {
-            if (input.value === '') {
-                success = false;
-            }
-        });
-
-        return success;
     };
 
     const sendData = data => fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -67,12 +59,13 @@ const sendForm = ({ formId, someElem = [] }) => {
         formData.forEach((value, key) => {
             formBody[key] = value;
         });
-
+        console.log(someElem);
         someElem.forEach(elem => {
             const element = document.getElementById(elem.id);
 
             formBody[elem.id] = elem.type === 'block' ? element.textContent : element.value;
         });
+        console.log(someElem);
 
         inputValidate(formElement);
 

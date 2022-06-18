@@ -4,6 +4,7 @@ const timer = deadline => {
     const timerMinutes = document.getElementById('timer-minutes');
     const timerSeconds = document.getElementById('timer-seconds');
     const span = document.querySelectorAll('#timer span')[1];
+    console.log(span);
 
     const getTimeRemaining = () => {
         const dateStop = new Date(deadline).getTime();
